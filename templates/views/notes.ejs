@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/mainpage.css">
+    <title>OneStopPlatform</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">OneStopPlatform</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/mainpage">Events<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/notes">Notes<span class="sr-only">(current)</span></a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <!-- title -->
+
+    <div class="main-section">
+        <h1 id="main-heading">Notes</h1>
+        <h2>THis section contains some useful notes for mid-term and end-term exams.</h2>
+    </div>
+    <!-- Main Content -->
+
+    <div class="subjects container">
+        <h1>You can click on any subject to get the notes.</h1>
+        <div class="row">
+            <div class="subject col-md-3">
+                <h1>BME</h1>
+                <a target="_blank" href="https://drive.google.com/drive/folders/0Bzb8Td5Ns09CMlNkMjBJdkhVRFU"
+                    type="button" class="btn btn-danger btn-lg">Click Me</a>
+            </div>
+            <div class="subject col-md-3">
+                <h1>Computer</h1>
+                <div class="content">
+                    <a target="_blank" href="https://drive.google.com/drive/folders/0Bzb8Td5Ns09CSGl0cVVoWm5HdVU"
+                        type="button" class="btn btn-danger btn-lg">Click Me</a>
+
+                </div>
+            </div>
+            <div class="subject col-md-3">
+                <h1>Electrical</h1>
+
+                <a target="_blank" href="https://drive.google.com/drive/folders/0Bzb8Td5Ns09CY3FBRllNSkpoTDA"
+                    type="button" class="btn btn-danger btn-lg">Click Me</a>
+
+            </div>
+            <div class="subject col-md-3">
+                <h1>Chemistry</h1>
+                <a target="_blank" href="https://drive.google.com/drive/folders/0Bzb8Td5Ns09CRk81clpzbXE5a1E"
+                    type="button" class="btn btn-danger btn-lg">Click Me</a>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="box" id="heading">
+        <h1>
+            TO-DO
+        </h1>
+    </div>
+
+    <div class="box">
+
+
+        <% newUserItems.forEach(function(item){ %>
+
+            <form action="/delete" method="post">
+                <div class="item">
+                    <input type="checkbox" name="checkbox" value="<%=item._id%>" onChange="this.form.submit()">
+                    <p>
+                        <%=item.name%>
+                    </p>
+                </div>
+                <input type="hidden" name="listName" value="<%= userTitle %>"></input>
+            </form>
+            <% }) %>
+
+                <form class="item" action="/notes" method="post">
+                    <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+                    <button class="add" type="submit" name="list" value="<%= userTitle %>">+</button>
+                </form>
+    </div>
+
+
+
+
+
+
+
+</body>
+
+</html>
