@@ -9,7 +9,6 @@ const session = require('express-session')
 const passport = require('passport')
 const passportLocalMongoose = require('passport-local-mongoose')
 const LocalStrategy = require('passport-local').Strategy
-const _ = require("lodash")
 
 
 const User=inputs.User
@@ -63,13 +62,8 @@ app.get('/signup', (req, res) =>{
     res.render('signup')
 })
 
-// app.get('/notes', (req, res)=> {
-//     res.render('notes')
-// })
-
 app.get("/notes", function(req, res) {
     const userID = req.user.username
-    console.log(req.user.username)
     User.findOne({username: userID}, function(err, foundUser){
         console.log(foundUser)
         if(!err){
@@ -84,7 +78,6 @@ app.get("/notes", function(req, res) {
 
 
 app.get('/mainpage', function(req, res) {
-    console.log(req.user)
     res.render('mainpage')
 })
 
@@ -136,18 +129,12 @@ app.post("/delete", function(req, res){
         }
     })
 })
-    // User.items.findByIdAndRemove(checkedItemId, function(err){
-    //     if (!err) {
-    //     console.log("Successfully deleted checked item.")
-    //     res.redirect("/notes");
-    //     }
-    // })
 
 app.post("/notes", function(req, res){
     const userID = req.user.username
     const itemName = req.body.newItem
     const item = new Item({
-      name: itemName
+    name: itemName
     })
     User.findOne({username: userID}, function(err, foundUser){
         foundUser.items.push(item);

@@ -162,3 +162,9 @@ input[type="text"]:focus {
   color: grey;
   opacity: 1;
 }
+
+.signup-button {
+  position: absolute;
+  top: 5px;
+  right:5%;
+}
