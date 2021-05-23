@@ -29,7 +29,7 @@ app.set('view engine', 'ejs')
 app.set('views', viewsPath)
 
 app.use(session({
-    secret: process.env.SECRET,
+    secret: Thisisourlittlesecret,
     resave: false,
     saveUninitialized: false
 }))
