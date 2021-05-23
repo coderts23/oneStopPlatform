@@ -29,7 +29,7 @@ app.set('view engine', 'ejs')
 app.set('views', viewsPath)
 
 app.use(session({
-    secret: Thisisourlittlesecret,
+    secret: 'Thisisourlittlesecret.',
     resave: false,
     saveUninitialized: false
 }))
